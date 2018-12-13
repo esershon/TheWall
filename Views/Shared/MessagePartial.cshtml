@@ -1,0 +1,6 @@
+@model Message
+<form asp-action="AddMessage" asp-controller="Message" method="post">
+    <input type = "hidden" name="UserId" value = "@ViewBag.user.UserId">
+    <input type="text" name= "Content">
+    <input value="Post Message" type="submit">
+</form>

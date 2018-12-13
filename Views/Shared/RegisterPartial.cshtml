@@ -1,0 +1,24 @@
+@model User
+@{
+    ViewData["Title"] = "Registration";
+}
+<h3>Register</h3>
+    <form asp-action="Register" asp-controller="User" method="post"><!--"asp-action" corresponds to a mathing route method, and "asp-controller" references the name of the controller-->
+        <span asp-validation-for="FName"></span>
+        <label asp-for="FName"></label>
+        <input class="form-control" asp-for="FName">
+        <span asp-validation-for="LName"></span>
+        <label asp-for="LName"></label>
+        <input class="form-control" asp-for="LName">
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email">
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password">
+        <span asp-validation-for="PwConfirm"></span>
+        <label asp-for="PwConfirm"></label>
+        <input class="form-control" asp-for="PwConfirm">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

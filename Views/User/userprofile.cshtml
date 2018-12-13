@@ -1,0 +1,21 @@
+<div class = "container">
+    <div class = "row">
+        <br>
+        <br>
+    </div>
+    <div class = "row">
+        <text>
+        <h3> @ViewBag.user.FName's Info </h3>
+        <p>Name: @ViewBag.user.FName @ViewBag.user.LName</p>
+        <p>Email: @ViewBag.user.Email </p>
+        </text>
+    </div>
+    <div class = "row">
+@{
+    if (@ViewBag.user.UserId == @ViewBag.id)
+    {
+    <a href="/user/edit/@ViewBag.id">Edit My Profile</a>
+    }
+}
+</div>
+</div>

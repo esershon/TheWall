@@ -1,0 +1,24 @@
+/*Write all of your CSS here*/
+.comment
+{
+    margin-left: 100px;
+}
+
+.unlike
+{
+    background-color:red;
+}
+.like
+{
+    background-color:green;
+}
+.likecount{
+    display:inline-block;
+}
+.likebutton{
+    display:inline-block;
+}
+.delete
+{
+    display:block;
+}

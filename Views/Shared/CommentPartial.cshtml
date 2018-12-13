@@ -1,0 +1,7 @@
+@model Comment
+<form asp-action="AddComment"asp-controller="Comment" method="post">
+    <input type = "hidden" name="UserId" value = "@ViewBag.user.UserId">
+    <input type="hidden" name = "MessageId" value = "@ViewData["MessageId"]">
+    <input type="text" name = "Content">
+    <input value="Post Comment" type="submit">
+</form>

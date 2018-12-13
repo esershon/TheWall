@@ -1,0 +1,35 @@
+
+<h1>Welcome to the Wall</h1>
+
+<partial name="MessagePartial"/>
+@{
+    foreach(var mes in @ViewBag.MessagesWithAuthors)
+    {   
+        ViewData["MessageId"]= @mes.MessageId;
+        <p>@mes.Author.FName @mes.Author.LName - @mes.CreatedAt.ToString("MM/dd/yyyy hh:mm tt")</p>
+        <p>@mes.Content</p>
+        <partial name="MLikePartial" view-data="ViewData"/>
+        @if (@ViewBag.User.UserId==@mes.UserId)
+        {
+            <a class="delete" href="/deletemessage/@mes.MessageId">Delete</a>
+        }
+        <div class="comment">
+        @foreach (Comment com in @ViewBag.CommentsWithAuthors)
+        {
+            if (com.MessageId == ViewData["MessageId"] as int?)
+            {
+                ViewData["CommentId"]=@com.CommentId;
+                <p>@com.Author.FName @com.Author.LName - @com.CreatedAt.ToString("MM/dd/yyyy hh:mm tt")</p>
+                <p>@com.Content</p>
+                <partial name="CLikePartial" view-data="ViewData"/>
+
+                @if (@ViewBag.User.UserId==@com.UserId)
+                {
+                    <a class="delete" href="/deletecomment/@com.CommentId">Delete</a>
+                }
+            }
+        }
+        <partial name="CommentPartial" view-data="ViewData"/>
+        </div>
+    }
+}

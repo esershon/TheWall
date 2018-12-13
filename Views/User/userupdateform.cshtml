@@ -1,0 +1,26 @@
+<h1>Update @ViewBag.user.FName's Profile</h1>
+@model User
+<div class = "container">
+    <div class = "row">
+        <div class = "col-4">
+    <form asp-action="UpdateUser" asp-controller="User" method="post">
+        <span asp-validation-for="FName"></span>
+        <label asp-for="FName"></label>
+        <input asp-for="FName" class="form-control" value="@ViewBag.user.FName">
+        <span asp-validation-for="LName"></span>
+        <label asp-for="LName"></label>
+        <input asp-for="LName"class="form-control" value="@ViewBag.user.LName">
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" value="@ViewBag.user.Email">
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password">
+        <span asp-validation-for="PwConfirm"></span>
+        <label asp-for="PwConfirm"></label>
+        <input class="form-control" asp-for="PwConfirm">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+        </div></div></div>
+    <!-- you can still use model-binding. It doesn't save to your database until YOU save it.  -->

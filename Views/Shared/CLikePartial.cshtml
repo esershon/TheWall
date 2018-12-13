@@ -1,0 +1,31 @@
+@model CLike
+   <div class="likebutton">
+@{
+    bool likes = false;
+    int count = 0;
+    foreach(CLike like in @ViewBag.CLikes)
+    {
+        if (like.UserId==@ViewBag.User.UserId && like.CommentId==((@ViewData["CommentId"] as int?).Value))
+        {
+            likes= true;
+            <form action="UnlikeComment" method = "post">
+            <input type="hidden" name="CLikeId" value="@like.CLikeId">
+            <input class="unlike" value="Unlike" type="submit">
+            </form>
+        }
+        if(like.CommentId==@ViewData["CommentId"] as int?)
+        {
+        count ++;
+        }
+    }
+    if (likes==false)
+    {
+        <form asp-action="AddCLike" asp-controller="Like" method="post">
+        <input type="hidden" asp-for="UserId" value= "@ViewBag.User.UserId">
+        <input type="hidden" asp-for="CommentId" value = "@ViewData["CommentId"]">
+        <input class="like" value="Like" type="submit">
+        </form>
+    }
+}
+</div>
+    <p class="likecount">This comment has been liked @count times!</p>
